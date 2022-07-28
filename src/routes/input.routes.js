@@ -7,20 +7,19 @@ const router = Router();
 
 router.get('/', async (req, res) => {
    
-  // http://localhost:3001/iecho?text=
+  // http://localhost:3001/iecho?text=anana
   const { text } = req.query
 
   try {
     
     let alt = text.toLowerCase();
       
-    let alt2 = text.replace(/\W/g, '');
-    alt2 = alt2.toLowerCase();
+    let alt2 = text.replace(/\W/g, '').toLowerCase();
     // console.log(alt2);
        
     alt2 === alt2.split('').reverse().join('')
-    ? res.status(200).json({ 'palinrome': true, text: alt.split('').reverse().join('') })
-    : res.status(200).json({ 'palinrome': false, text: alt.split('').reverse().join('') })
+    ? res.status(200).json({ 'palindrome': true, text: alt.split('').reverse().join('') })
+    : res.status(200).json({ 'palindrome': false, text: alt.split('').reverse().join('') })
 
 
   } catch(error) {
